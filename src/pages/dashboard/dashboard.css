@@ -1,0 +1,460 @@
+/* Dashboard CSS - Green Theme */
+
+/* CSS Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.dashboard-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f0f9f0 0%, #e8f5e8 100%);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #2d5a2d;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 100vh !important;
+    gap: 20px !important;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #c8e6c8;
+    border-top: 4px solid #4caf50;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-spinner p {
+    font-size: 16px;
+    color: #4caf50;
+    font-weight: 500;
+}
+
+/* Error and Auth Required States */
+.auth-required,
+.error-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+}
+
+.auth-required h2,
+.error-message h2 {
+    color: #2e7d32;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.auth-required p,
+.error-message p {
+    color: #558b55;
+    font-size: 16px;
+}
+
+/* Header Styles */
+.dashboard-header {
+    background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+    color: white;
+    padding: 30px 20px;
+    box-shadow: 0 4px 20px rgba(76, 175, 80, 0.3);
+    margin-bottom: 30px;
+}
+
+.greeting {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-info {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.current-date {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+}
+
+/* Main Dashboard Layout */
+.dashboard-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 0 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Section Cards */
+.section-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(76, 175, 80, 0.1);
+    border: 1px solid #e8f5e8;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 48px rgba(76, 175, 80, 0.15);
+}
+
+.section-title {
+    background: linear-gradient(135deg, #66bb6a 0%, #4caf50 100%);
+    color: white;
+    padding: 20px 25px;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Student Information Section */
+.student-info-section {
+    height: fit-content;
+}
+
+.info-grid {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.info-field label {
+    font-weight: 600;
+    color: #2e7d32;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.readonly-input {
+    padding: 14px 16px;
+    border: 2px solid #c8e6c8;
+    border-radius: 8px;
+    background: #f9fdf9;
+    font-size: 16px;
+    color: #2d5a2d;
+    font-weight: 500;
+    cursor: not-allowed;
+    transition: border-color 0.3s ease;
+}
+
+.readonly-input:focus {
+    outline: none;
+    border-color: #4caf50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+/* Student Card Information Section */
+.card-info-section {
+    height: fit-content;
+}
+
+.student-card {
+    margin: 25px;
+    background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 24px rgba(76, 175, 80, 0.3);
+    color: white;
+}
+
+.card-header {
+    padding: 20px 25px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.card-status {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-status.active {
+    background: #81c784;
+    color: #1b5e20;
+}
+
+.card-status.inactive {
+    background: #ffab91;
+    color: #bf360c;
+}
+
+.card-status.not-assigned {
+    background: #b0bec5;
+    color: #37474f;
+}
+
+.card-body {
+    padding: 20px 25px 25px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.card-avatar {
+    flex-shrink: 0;
+}
+
+.avatar-placeholder {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    backdrop-filter: blur(10px);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.card-details h4 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: white;
+}
+
+.reg-number {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    opacity: 0.9;
+}
+
+.admission-year {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 0;
+}
+
+/* Card Status and Issue Date Fields */
+.card-status-section {
+    margin: 0 25px 25px;
+    background: rgba(76, 175, 80, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #4caf50;
+}
+
+.status-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.status-field:last-child {
+    margin-bottom: 0;
+}
+
+.status-label {
+    font-weight: 600;
+    color: #2e7d32;
+    font-size: 14px;
+}
+
+.status-value {
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.status-value.active {
+    background: #c8e6c8;
+    color: #1b5e20;
+}
+
+.status-value.inactive {
+    background: #ffcdd2;
+    color: #c62828;
+}
+
+.status-value.not-assigned {
+    background: #f5f5f5;
+    color: #616161;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .dashboard-main {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .greeting {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-header {
+        padding: 20px 15px;
+    }
+
+    .greeting {
+        font-size: 22px;
+    }
+
+    .dashboard-main {
+        padding: 0 15px;
+        gap: 20px;
+    }
+
+    .info-grid {
+        padding: 20px;
+    }
+
+    .card-body {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .avatar-placeholder {
+        width: 70px;
+        height: 70px;
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-header {
+        padding: 15px 10px;
+    }
+
+    .greeting {
+        font-size: 20px;
+    }
+
+    .current-date {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .dashboard-main {
+        padding: 0 10px;
+        gap: 15px;
+    }
+
+    .section-title {
+        padding: 15px 20px;
+        font-size: 18px;
+    }
+
+    .info-grid,
+    .card-status-section {
+        padding: 15px;
+    }
+
+    .student-card {
+        margin: 15px;
+    }
+
+    .card-header,
+    .card-body {
+        padding: 15px 20px;
+    }
+
+    .readonly-input {
+        padding: 12px 14px;
+        font-size: 15px;
+    }
+
+    .status-field {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+}
+
+/* Additional utility classes for better UX */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Focus states for accessibility */
+.readonly-input:focus-visible {
+    outline: 2px solid #4caf50;
+    outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+    .dashboard-header {
+        background: #4caf50 !important;
+        /* -webkit-print-color-adjust: exact; */
+    }
+
+    .section-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}

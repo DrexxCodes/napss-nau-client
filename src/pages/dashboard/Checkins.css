@@ -1,0 +1,250 @@
+.checkins-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #f0f8f0 0%, #e8f5e8 100%);
+}
+
+.checkins-content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.checkins-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.checkins-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2d5a2d;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(45, 90, 45, 0.1);
+}
+
+.checkins-header p {
+  font-size: 1.1rem;
+  color: #5a7a5a;
+  margin: 0;
+}
+
+.loading-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  font-size: 1.2rem;
+  color: #2d5a2d;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.error-message {
+  background: #fee;
+  border: 1px solid #fcc;
+  color: #c33;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.no-events-message {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(45, 90, 45, 0.1);
+}
+
+.no-events-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.no-events-message h2 {
+  font-size: 1.8rem;
+  color: #2d5a2d;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.no-events-message p {
+  font-size: 1.1rem;
+  color: #5a7a5a;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.event-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(45, 90, 45, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.event-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #4caf50, #66bb6a);
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(45, 90, 45, 0.15);
+}
+
+.event-header {
+  margin-bottom: 1rem;
+}
+
+.event-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2d5a2d;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.4;
+}
+
+.event-date {
+  font-size: 0.9rem;
+  color: #5a7a5a;
+  font-weight: 500;
+}
+
+.event-details {
+  margin-bottom: 1rem;
+}
+
+.event-detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(45, 90, 45, 0.1);
+}
+
+.event-detail-item:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  font-size: 0.9rem;
+  color: #5a7a5a;
+  font-weight: 500;
+}
+
+.detail-value {
+  font-size: 0.9rem;
+  color: #2d5a2d;
+  font-weight: 600;
+}
+
+.event-status {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.status-badge {
+  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .checkins-content {
+    padding: 1rem;
+  }
+
+  .checkins-header h1 {
+    font-size: 2rem;
+  }
+
+  .checkins-header p {
+    font-size: 1rem;
+  }
+
+  .events-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .event-card {
+    padding: 1.25rem;
+  }
+
+  .event-name {
+    font-size: 1.2rem;
+  }
+
+  .no-events-message {
+    padding: 3rem 1.5rem;
+  }
+
+  .no-events-icon {
+    font-size: 3rem;
+  }
+
+  .no-events-message h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .checkins-content {
+    padding: 0.75rem;
+  }
+
+  .checkins-header {
+    margin-bottom: 2rem;
+  }
+
+  .checkins-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .event-card {
+    padding: 1rem;
+  }
+
+  .event-detail-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .detail-value {
+    font-size: 0.85rem;
+  }
+}

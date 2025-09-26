@@ -1,0 +1,153 @@
+/* Simplified horizontal navigation - no active state tracking */
+.horizontal-nav {
+  width: 100%;
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.horizontal-menu {
+  width: 100%;
+}
+
+.horizontal-menu-scroll {
+  display: flex;
+  overflow-x: auto;
+  padding: 0 16px;
+  gap: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: #4a7c59 #f0f0f0;
+  min-height: 60px;
+  align-items: center;
+  scroll-behavior: smooth;
+}
+
+.horizontal-menu-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.horizontal-menu-scroll::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.horizontal-menu-scroll::-webkit-scrollbar-thumb {
+  background: #4a7c59;
+  border-radius: 2px;
+}
+
+.horizontal-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #666;
+  font-size: 14px;
+  white-space: nowrap;
+  border-radius: 6px;
+  margin: 8px 0;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+/* Simplified hover state - removed active state since navigation uses routing */
+.horizontal-menu-item:hover {
+  background: #f5f5f5;
+  color: #4a7c59;
+  transform: translateY(-1px);
+}
+
+/* Enhanced mobile responsiveness with horizontal scrolling and full text */
+@media (max-width: 768px) {
+  .horizontal-menu-scroll {
+    padding: 0 12px;
+    gap: 12px; /* Increased gap for better spacing with text */
+  }
+
+  .horizontal-menu-item {
+    padding: 10px 14px;
+    font-size: 13px;
+    gap: 6px;
+    min-height: 44px;
+    /* Keep text visible on mobile - remove the display: none */
+  }
+
+  .horizontal-menu-item span {
+    font-weight: 500; /* Slightly bolder text for better readability */
+  }
+}
+
+@media (max-width: 480px) {
+  .horizontal-menu-scroll {
+    padding: 0 8px;
+    gap: 10px;
+    min-height: 56px;
+  }
+
+  .horizontal-menu-item {
+    padding: 8px 12px;
+    min-height: 40px;
+    font-size: 12px;
+  }
+
+  .horizontal-menu-item span {
+    font-size: 12px;
+  }
+}
+
+/* Enhanced touch targets for mobile */
+@media (max-width: 768px) {
+  .horizontal-menu-item {
+    min-height: 44px;
+    min-width: auto; /* Allow natural width based on content */
+  }
+}
+
+/* Focus states for accessibility */
+.horizontal-menu-item:focus {
+  outline: 2px solid #4a7c59;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .horizontal-menu-item {
+    border: 1px solid transparent;
+  }
+
+  .horizontal-menu-item:hover,
+  .horizontal-menu-item:focus {
+    border-color: #4a7c59;
+  }
+}
+
+/* Fade effect for scroll indicators */
+.horizontal-nav::before,
+.horizontal-nav::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 20px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.horizontal-nav {
+  position: relative;
+}
+
+/* Left fade */
+.horizontal-nav::before {
+  left: 0;
+  background: linear-gradient(to right, white, transparent);
+}
+
+/* Right fade */
+.horizontal-nav::after {
+  right: 0;
+  background: linear-gradient(to left, white, transparent);
+}
